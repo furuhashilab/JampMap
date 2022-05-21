@@ -38,41 +38,6 @@
         center: [139.72582, 36.943], // starting position
       });
 
-      map.on("load", () => {
-        map.loadImage(
-          "https://furuhashilab.github.io/JampMap/キャラクターロゴ/sulamdank.png",
-          (error, image) => {
-            if (error) throw error;
-
-           
-            map.addImage("slamdank", image);
-            map.addSource("point", {
-              type: "geojson",
-              data: {
-                type: "FeatureCollection",
-                features: [
-                  {
-                    type: "Feature",
-                    geometry: {
-                      type: "Point",
-                      coordinates: [139.5005354, 35.30693431],
-                    },
-                  },
-                ],
-              },
-            });
-            map.addLayer({
-              id: "points",
-              type: "symbol",
-              source: "point", // reference the data source
-              layout: {
-                "icon-image": "slamdank", // reference the image
-                "icon-size": 0.05,
-              },
-            });
-          }
-        );
-      });
 
       map.on("load", () => {
         // Load an image from an external URL.
@@ -85,21 +50,25 @@
             map.addImage("slamdank", image);
 
             // Add a data source containing one point feature.
-            map.addSource("point", {
+            map.addSource(
+              "slumdank", {
               type: "geojson",
               data: "https://furuhashilab.github.io/JampMap/location-master.geojson",
             });
 
             // Add a layer to use the image to represent the data.
-            map.addLayer({
-              id: "points",
+            map.addLayer(
+              {
+              id: "slumdank",
               type: "symbol",
-              source: "point", // reference the data source
+              source: "slumdank", // reference the data source
               layout: {
                 "icon-image": "slamdank", // reference the image
                 "icon-size": 0.05,
               },
-            });
+            }
+            
+            );
           }
         );
       });
