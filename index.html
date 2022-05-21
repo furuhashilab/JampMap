@@ -46,7 +46,7 @@
             if (error) throw error;
 
             // Add the image to the map style.
-            map.addImage("cat", image);
+            map.addImage("slamdank", image);
 
             // Add a data source containing one point feature.
             map.addSource("point", {
@@ -71,13 +71,55 @@
               type: "symbol",
               source: "point", // reference the data source
               layout: {
-                "icon-image": "cat", // reference the image
+                "icon-image": "slamdank", // reference the image
                 "icon-size": 0.05,
               },
             });
           }
         );
       });
+
+      map.on("load", () => {
+        // Load an image from an external URL.
+        map.loadImage(
+          "https://furuhashilab.github.io/JampMap/キャラクターロゴ/sulamdank.png",
+          (error, image) => {
+            if (error) throw error;
+
+            // Add the image to the map style.
+            map.addImage("slamdank", image);
+
+            // Add a data source containing one point feature.
+            map.addSource("point", {
+              type: "geojson",
+              data: {
+                type: "FeatureCollection",
+                features: [
+                  {
+                    type: "Feature",
+                    geometry: {
+                      type: "Point",
+                      coordinates: [139.5005354, 35.30693431],
+                    },
+                  },
+                ],
+              },
+            });
+
+            // Add a layer to use the image to represent the data.
+            map.addLayer({
+              id: "points",
+              type: "symbol",
+              source: "point", // reference the data source
+              layout: {
+                "icon-image": "slamdank", // reference the image
+                "icon-size": 0.05,
+              },
+            });
+          }
+        );
+      });
+
     </script>
   </body>
 </html>
