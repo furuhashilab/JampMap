@@ -41,7 +41,7 @@
       map.on("load", () => {
         // Load an image from an external URL.
         map.loadImage(
-          "https://docs.mapbox.com/mapbox-gl-js/assets/cat.png",
+          "https://furuhashilab.github.io/JampMap/キャラクターロゴ/sulamdank.png",
           (error, image) => {
             if (error) throw error;
 
@@ -58,7 +58,7 @@
                     type: "Feature",
                     geometry: {
                       type: "Point",
-                      coordinates: [-77.4144, 25.0759],
+                      coordinates: [139.5005354, 35.30693431],
                     },
                   },
                 ],
@@ -72,7 +72,7 @@
               source: "point", // reference the data source
               layout: {
                 "icon-image": "cat", // reference the image
-                "icon-size": 0.25,
+                "icon-size": 0.05,
               },
             });
           }
