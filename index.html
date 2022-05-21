@@ -87,17 +87,7 @@
             // Add a data source containing one point feature.
             map.addSource("point", {
               type: "geojson",
-              data: {
-                type: "FeatureCollection",
-                features: [
-                  {
-                    type: "Feature",
-                    geometry: {
-                      type: "Point",
-                      coordinates: [139.5005354, 35.30693431],
-                    },
-                  },
-                ],
+              data: { "https://furuhashilab.github.io/JampMap/csv/location-master.csv"
               },
             });
 
