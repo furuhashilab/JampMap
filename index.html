@@ -39,16 +39,13 @@
       });
 
       map.on("load", () => {
-        // Load an image from an external URL.
         map.loadImage(
           "https://furuhashilab.github.io/JampMap/キャラクターロゴ/sulamdank.png",
           (error, image) => {
             if (error) throw error;
 
-            // Add the image to the map style.
+           
             map.addImage("slamdank", image);
-
-            // Add a data source containing one point feature.
             map.addSource("point", {
               type: "geojson",
               data: {
@@ -64,8 +61,6 @@
                 ],
               },
             });
-
-            // Add a layer to use the image to represent the data.
             map.addLayer({
               id: "points",
               type: "symbol",
