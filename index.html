@@ -38,41 +38,50 @@
         center: [139.72582, 36.943], // starting position
       });
 
-
       map.on("load", () => {
-        // Load an image from an external URL.
         map.loadImage(
           "https://furuhashilab.github.io/JampMap/キャラクターロゴ/sulamdank.png",
           (error, image) => {
             if (error) throw error;
-
-            // Add the image to the map style.
-            map.addImage("slamdank", image);
+            map.addImage("slumdank", image);
 
             // Add a data source containing one point feature.
-            map.addSource(
-              "slumdank", {
+            map.addSource("slumdank", {
               type: "geojson",
-              data: "https://furuhashilab.github.io/JampMap/location-master.geojson",
+              data: "https://furuhashilab.github.io/JampMap/geojson/Slamdunk.geojson",
             });
 
+              map.addSource("kimetsu", {
+              type: "geojson",
+              data: "https://furuhashilab.github.io/JampMap/geojson/Kimetsu.geojson",
+            });
+
+            map.addSource("kimetsu", {
+              type: "geojson",
+              data: "https://furuhashilab.github.io/JampMap/geojson/Captain Tsubasa.geojson",
+            });
+
+            map.addSource("kimetsu", {
+              type: "geojson",
+              data: "https://furuhashilab.github.io/JampMap/geojson/Haikyu!!.geojson",
+            });
+
+
+
+
             // Add a layer to use the image to represent the data.
-            map.addLayer(
-              {
+            map.addLayer({
               id: "slumdank",
               type: "symbol",
-              source: "slumdank", // reference the data source
+              source: "kimetsu", // reference the data source
               layout: {
-                "icon-image": "slamdank", // reference the image
+                "icon-image": "slumdank", // reference the image
                 "icon-size": 0.05,
               },
-            }
-            
-            );
+            });
           }
         );
       });
-
     </script>
   </body>
 </html>
